@@ -6,7 +6,4 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-= Системы сборки (опять)
-
-* link:./01_simple_build[1. Собираем код руками]
-* link:./02_maven[2. сборка с Maven]
+= Пример репозитория, использующего Maven

@@ -1,0 +1,3 @@
+[submodule "02_maven/GLL4Graph"]
+	path = 02_maven/GLL4Graph
+	url = https://github.com/FormalLanguageConstrainedPathQuerying/GLL4Graph
