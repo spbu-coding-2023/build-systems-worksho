@@ -1,0 +1,92 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :memo:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+= Сборка руками
+
+Для компиляции программы понадобится компилятор https://github.com/JetBrains/kotlin/releases/tag/v1.9.22[kotlinc]
+
+== Компиляция `.kt` в `.class`
+
+Скомпилируем программу
+
+[source, shell]
+----
+kotlinc Main.kt Add.kt
+----
+
+Видим, что появились файлы
+
+[listing]
+----
+AddKt.class
+META-INF/
+MainKt.class
+----
+
+Теперь можно запустить программу
+
+[source, shell]
+----
+java Main
+----
+
+Программа должна вывести
+
+[listing]
+----
+2 + 2 = 4
+----
+
+== Сборка `.jar`
+
+Также можно сразу упаковать результаты компиляции в `.jar` файл
+
+[source, shell]
+----
+kotlinc Main.kt Add.kt -d add.jar
+----
+
+Видим, что появился файл `add.jar`.
+Посмотрите его содержимое, например, командой
+
+[source, shell]
+----
+7z l add.jar
+----
+
+[listing]
+----
+7-Zip [64] 17.05 : Copyright (c) 1999-2021 Igor Pavlov : 2017-08-28
+p7zip Version 17.05 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs x64)
+
+Scanning the drive for archives:
+1 file, 1527 bytes (2 KiB)
+
+Listing archive: add.jar
+
+--
+Path = add.jar
+Type = zip
+Physical Size = 1527
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+1980-01-01 00:00:00 .....           75           73  META-INF/MANIFEST.MF
+1980-01-01 00:00:00 .....          432          320  AddKt.class
+1980-01-01 00:00:00 .....          890          558  MainKt.class
+1980-01-01 00:00:00 .....           43           38  META-INF/main.kotlin_module
+------------------- ----- ------------ ------------  ------------------------
+1980-01-01 00:00:00               1440          989  4 files
+----
+
+Запустим программу
+
+[source, shell]
+----
+java -jar add.jar
+----
