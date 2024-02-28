@@ -10,3 +10,4 @@ endif::[]
 
 * link:./01_simple_build[1. Собираем код руками]
 * link:./02_maven[2. сборка с Maven]
+* link:./03_gradle[3. сборка с Gradle]
